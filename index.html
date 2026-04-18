@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aivox_x</title>
+    <title>Aivox_x | te1zx</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -20,12 +20,7 @@
             --sidebar-width: 280px;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
 
         body {
             background-color: var(--bg-color);
@@ -38,18 +33,17 @@
                 radial-gradient(circle at 85% 30%, rgba(0, 210, 255, 0.1), transparent 25%);
         }
 
+        /* Сайдбар */
         .sidebar {
             width: var(--sidebar-width);
-            background: rgba(11, 4, 16, 0.8);
-            backdrop-filter: blur(10px);
+            background: rgba(11, 4, 16, 0.9);
+            backdrop-filter: blur(15px);
             border-right: 1px solid var(--glass-border);
             display: flex;
             flex-direction: column;
             padding: 30px;
             position: fixed;
-            top: 0;
-            left: 0;
-            bottom: 0;
+            top: 0; left: 0; bottom: 0;
             z-index: 100;
         }
 
@@ -68,7 +62,7 @@
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid var(--primary);
-            box-shadow: 0 0 15px var(--primary-glow);
+            box-shadow: 0 0 20px var(--primary-glow);
             margin-bottom: 15px;
             background: #1a0a25;
         }
@@ -81,12 +75,7 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .nav-links {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            flex-grow: 1;
-        }
+        .nav-links { display: flex; flex-direction: column; gap: 15px; flex-grow: 1; }
 
         .nav-btn {
             background: transparent;
@@ -98,16 +87,10 @@
             font-weight: 600;
             cursor: pointer;
             transition: 0.3s;
-            text-decoration: none;
             text-align: left;
             display: flex;
             align-items: center;
             gap: 10px;
-        }
-
-        .nav-btn i {
-            width: 20px;
-            text-align: center;
         }
 
         .nav-btn:hover, .nav-btn.active {
@@ -119,125 +102,90 @@
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             margin-top: auto;
             padding-top: 20px;
             border-top: 1px solid var(--glass-border);
         }
 
-        .social-icon {
-            font-size: 28px;
-            color: var(--text-main);
-            transition: 0.3s;
-            text-decoration: none;
-        }
+        .social-icon { font-size: 28px; color: var(--text-main); transition: 0.3s; }
+        .social-icon:hover { transform: scale(1.2); color: var(--accent); }
 
-        .social-icon:hover { transform: scale(1.2); }
-        .social-icon.tg:hover { color: #0088cc; text-shadow: 0 0 15px rgba(0, 136, 204, 0.6); }
-        .social-icon.tt:hover { color: #ff0050; text-shadow: 0 0 15px rgba(255, 0, 80, 0.6); }
-
+        /* Контент */
         .main-content {
             margin-left: var(--sidebar-width);
             width: calc(100% - var(--sidebar-width));
             display: flex;
             justify-content: center;
-            align-items: center;
-            padding: 40px;
+            padding: 60px 40px;
         }
 
-        .container {
-            max-width: 900px;
-            width: 100%;
-        }
+        .container { max-width: 800px; width: 100%; }
 
         .section {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
-            border-radius: 20px;
+            border-radius: 25px;
             padding: 40px;
-            margin-bottom: 40px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             display: none;
             animation: slideUp 0.5s ease-out;
+            backdrop-filter: blur(10px);
         }
 
         .section.active { display: block; }
 
-        .section h2 {
-            color: var(--accent);
+        .section h2 { color: var(--accent); margin-bottom: 20px; font-size: 2rem; }
+        .section p { color: var(--text-muted); line-height: 1.8; font-size: 1.1rem; white-space: pre-line; margin-bottom: 20px;}
+
+        .tg-link { color: var(--primary); font-weight: 600; text-decoration: none; border-bottom: 1px dashed var(--primary); }
+        .tg-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+        /* Отзывы */
+        .notice-box {
+            background: rgba(0, 210, 255, 0.1);
+            border: 1px solid var(--accent);
+            padding: 15px;
+            border-radius: 12px;
             margin-bottom: 25px;
-            font-size: 2rem;
             display: flex;
             align-items: center;
-            gap: 10px;
-        }
-
-        .section p {
-            color: var(--text-muted);
-            line-height: 1.8;
-            font-size: 1.1rem;
-            white-space: pre-line; /* Сохраняет перенос строк */
-        }
-
-        .tg-link {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            border-bottom: 1px dashed var(--primary);
-            transition: 0.3s;
-        }
-
-        .tg-link:hover {
-            color: var(--accent);
-            border-bottom-color: var(--accent);
-        }
-
-        .review-form {
-            display: flex;
-            flex-direction: column;
             gap: 15px;
-            margin-top: 30px;
         }
+        .notice-box i { color: var(--accent); font-size: 1.2rem; }
+        .notice-text { color: var(--text-main); font-size: 0.95rem; }
 
+        .review-form { display: flex; flex-direction: column; gap: 15px; margin-bottom: 40px; }
         .review-form input, .review-form textarea {
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.3);
             border: 1px solid var(--glass-border);
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            outline: none;
-            transition: 0.3s;
+            color: white; padding: 15px; border-radius: 12px; outline: none;
         }
-
-        .review-form input:focus, .review-form textarea:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 10px var(--primary-glow);
-        }
+        .review-form textarea { min-height: 100px; resize: vertical; }
 
         .submit-btn {
             background: linear-gradient(45deg, var(--primary), var(--accent));
-            color: white;
-            border: none;
-            padding: 15px;
-            border-radius: 10px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
+            color: white; border: none; padding: 15px; border-radius: 12px;
+            font-weight: 700; cursor: pointer; transition: 0.3s;
         }
+        .submit-btn:hover { box-shadow: 0 0 20px var(--primary-glow); transform: scale(1.02); }
 
-        .submit-btn:hover {
-            box-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
-            transform: translateY(-2px);
+        .reviews-list { display: flex; flex-direction: column; gap: 20px; }
+        .review-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 20px; border-radius: 15px;
+            border-left: 4px solid var(--primary);
         }
+        .review-header { display: flex; justify-content: space-between; margin-bottom: 10px; }
+        .rev-author { color: var(--accent); font-weight: 600; }
+        .rev-date { color: var(--text-muted); font-size: 0.85rem; }
+        .rev-text { font-size: 1rem; line-height: 1.5; }
 
-        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
         @media (max-width: 768px) {
             body { flex-direction: column; }
-            .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--glass-border); padding: 20px; }
+            .sidebar { width: 100%; height: auto; position: relative; border-right: none; }
             .main-content { margin-left: 0; width: 100%; padding: 20px; }
-            .nav-links { flex-direction: row; justify-content: center; flex-wrap: wrap; }
         }
     </style>
 </head>
@@ -256,8 +204,8 @@
         </div>
         
         <div class="social-links">
-            <a href="https://t.me/aivox_x" target="_blank" class="social-icon tg"><i class="fab fa-telegram"></i></a>
-            <a href="https://www.tiktok.com/@aivox_x?_r=1&_t=ZN-95Pq4iMu0GM" target="_blank" class="social-icon tt"><i class="fab fa-tiktok"></i></a>
+            <a href="https://t.me/aivox_x" target="_blank" class="social-icon"><i class="fab fa-telegram"></i></a>
+            <a href="https://www.tiktok.com/@aivox_x?_r=1&_t=ZN-95Pq4iMu0GM" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
         </div>
     </div>
 
@@ -265,32 +213,46 @@
         <div class="container">
             
             <div id="orders" class="section active">
-                <h2><i class="fas fa-box"></i>📦 Заказы</h2>
-                <p>Заказы — это ресурспак по вашим желаниям. Вы рассказываете, какой ресурспак хотите, а я воплощаю это в жизнь. 
+                <h2><i class="fas fa-box"></i> Заказы</h2>
+                <p>Заказы — это ресурспак по вашим желаниям. Вы рассказываете, какой ресурспак хотите, а я его делаю после оплаты.
 
-Цена зависит от сложности работы. Сначала вы описываете идею, после чего я называю стоимость. Согласиться или отказаться — ваш выбор. 
+Цена зависит от сложности. Сначала вы описываете идею, после чего я называю цену. Согласиться или отказаться — ваш выбор.
 
 Пишите <a href="https://t.me/aivox7480" class="tg-link">@aivox7480</a> для подробностей.</p>
             </div>
 
             <div id="ads" class="section">
-                <h2><i class="fas fa-rocket"></i>🚀 Реклама</h2>
-                <p>Доступны различные варианты рекламы, от которых зависит итоговая стоимость. 
+                <h2><i class="fas fa-rocket"></i> Реклама</h2>
+                <p>Есть разная реклама, от чего и меняется цена.
 
-Обычная цена варьируется в пределах 100–300 рублей, но может быть немного выше в зависимости от ситуации. 
+Обычно стоимость составляет 100–300 рублей, но может быть и немного больше в зависимости от ситуации. 
 
-Пишите <a href="https://t.me/aivox7480" class="tg-link">@aivox7480</a> для обсуждения деталей.</p>
+Пишите <a href="https://t.me/aivox7480" class="tg-link">@aivox7480</a> для подробностей.</p>
             </div>
 
             <div id="reviews" class="section">
-                <h2><i class="fas fa-comments"></i>💬 Отзывы</h2>
-                <p>Приветствую! Здесь вы можете оставить свой отзыв о работе персонала, техподдержке или качестве ресурспаков.</p>
+                <h2><i class="fas fa-comments"></i> Отзывы</h2>
                 
-                <form class="review-form" onsubmit="event.preventDefault(); alert('Отзыв отправлен!');">
-                    <input type="text" placeholder="Ваше имя" required>
-                    <textarea placeholder="Напишите ваш отзыв здесь..." required></textarea>
-                    <button type="submit" class="submit-btn">Оставить отзыв</button>
+                <div class="notice-box">
+                    <i class="fas fa-info-circle"></i>
+                    <div class="notice-text">Ваш отзыв появится на сайте после проверки модератором.</div>
+                </div>
+
+                <form class="review-form" action="https://formspree.io/f/xojywdgq" method="POST" id="reviewForm">
+                    <input type="text" name="name" id="revName" placeholder="Ваше имя" required>
+                    <textarea name="message" id="revText" placeholder="Ваш отзыв..." required></textarea>
+                    <button type="submit" class="submit-btn">Опубликовать отзыв</button>
                 </form>
+
+                <div class="reviews-list" id="reviewsList">
+                    <div class="review-item">
+                        <div class="review-header">
+                            <span class="rev-author">Danil_PvP</span>
+                            <span class="rev-date">18.04.2026</span>
+                        </div>
+                        <div class="rev-text">Лучший ресурспак Сделал всё как я просил детализация на высоте Стоит своих денег.</div>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -298,11 +260,49 @@
 
     <script>
         function showSection(sectionId) {
-            document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
-            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
             document.getElementById(sectionId).classList.add('active');
             document.getElementById('btn-' + sectionId).classList.add('active');
         }
+
+        // Скрипт отправки формы без перезагрузки страницы
+        const form = document.getElementById('reviewForm');
+        form.onsubmit = async (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            
+            // Визуальное добавление (только для отправителя)
+            const name = document.getElementById('revName').value;
+            const text = document.getElementById('revText').value;
+            const date = new Date().toLocaleDateString();
+
+            // Отправка на Formspree
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                alert('Спасибо! Ваш отзыв отправлен и появится на сайте после проверки.');
+                
+                // Добавляем отзыв в список временно
+                const html = `
+                    <div class="review-item" style="border-left-color: var(--accent);">
+                        <div class="review-header">
+                            <span class="rev-author">${name}</span>
+                            <span class="rev-date">${date}</span>
+                        </div>
+                        <div class="rev-text">${text}</div>
+                    </div>
+                `;
+                document.getElementById('reviewsList').insertAdjacentHTML('afterbegin', html);
+                form.reset();
+            } else {
+                alert('Произошла ошибка при отправке. Попробуйте еще раз.');
+            }
+        };
     </script>
 
 </body>
